@@ -1,0 +1,38 @@
+<ion-view view-title="Movies" >
+
+  <ion-content  ng-controller="MoviesCtrl">
+
+
+
+    <div class="bar bar-header">
+      <button class="button button-icon icon ion-navicon"></button>
+      <div class="h1 title">Movies</div>
+      <button class="button button-clear button-positive"  ng-click="update()">Update</button>
+    </div>
+    <br>
+    <br>
+    <!-- <ion-spinner name="crescent" ng-if="spinner"></ion-spinner> -->
+    <div class="list card" ng-repeat="post in posts" ng-if="!spinner">
+      <div class="item item-thumbnail-left ">
+        <img ng-src="https://image.tmdb.org/t/p/original/{{post.backdrop_path}}" />
+        <h2>{{post.original_title}}</h2>
+        <p>{{post.release_date}}</p>
+      </div>
+
+      <div class="item item-body">
+
+        <p>
+          <p>{{post.overview}}5</p>
+        </p>
+        <p>
+      Voto Promedio: {{post.vote_average}}
+
+        </p>
+
+      </div>
+    </div>
+
+    <ion-infinite-scroll on-infinite="CargarNuevosPost()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
